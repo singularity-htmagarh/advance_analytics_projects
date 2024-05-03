@@ -1,0 +1,28 @@
+
+# DATA CLUSTERING AND SEGMENTATION ANALYSIS
+
+#### Read the DATA
+print(getwd())
+
+# Read all DATA
+houses <- read.csv(file = "Data/AmesHousing.csv", header = TRUE)
+cat(paste("Data: ", nrow(houses)))
+head(houses)
+     
+# Split data for cluster training and testing
+#   plus a small training set for charting, and testing
+set.seed(2019)
+sample.size <- 2930
+train.size <- 2000
+small.train.size <- 100
+test.size <- sample.size - train.size
+sample.idx <- sample(seq_len(nrow(houses)), size = sample.size)
+sample.houses <- houses[sample.idx,]
+train.idx <- sample(seq_len(nrow(sample.houses)), size = train.size)
+train.houses <- sample.houses[train.idx, ]
+test.houses <- sample.houses[-train.idx, ]
+
+# Save both partitions to disk
+write.csv(train.houses, file="Data/AmesHousing-Train.csv")
+write.csv(test.houses, file="Data/AmesHousing-Test.csv")
+cat("Training set: ", nrow(train.houses), "\tTest set: ", nrow(test.houses))
