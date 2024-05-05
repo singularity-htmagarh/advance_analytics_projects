@@ -298,7 +298,7 @@ clus.train.medoids <- clus.train.medoids[with(clus.train.medoids, order(Cluster)
 clus.train.medoids
 
 
-## SEGMENTATION ANALYSIS / CLUSTER INTERPRETATION
+## SEGMENTATION / CLUSTER INTERPRETATION
 
 # Plotting cluster information in the original units - using cluster medoids
 colfunc <- colorRampPalette(c("navy", "red", "orange"))
