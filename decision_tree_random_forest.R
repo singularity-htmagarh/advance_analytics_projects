@@ -25,7 +25,7 @@ ggplot(df, aes(Grad.Rate)) + geom_histogram(aes(fill=Private),color="black", bin
 
 subset(df, Grad.Rate>100)
 
-## Fix:
+## Fix: This is how your look at two variables (at the same time)
 df['Cazenovia College','Grad.Rate'] <- 100
 
 ## Decision Tree
